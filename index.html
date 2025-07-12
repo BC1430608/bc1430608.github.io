@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Company</title>
+  <script>
+    (function() {
+      emailjs.init("9h0zQ11b0liBfobad"); // Replace with your EmailJS public key
+    })();
+  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -104,6 +109,18 @@
 
         <button type="submit">Send Message</button>
       </form>
+       <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_kc6ab5n', 'service_kc6ab5n', this)
+        .then(function() {
+          alert('Email sent successfully!');
+        }, function(error) {
+          alert('Failed to send email: ' + JSON.stringify(error));
+        });
+    });
+  </script>
     </section>
   </div>
 
